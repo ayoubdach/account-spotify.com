@@ -1,8 +1,8 @@
 <?php 
-require (__DIR__).'/langs/auto.php';
-require (__DIR__).'/config.php';
-require (__DIR__).'/lib/frm.php';
-require (__DIR__).'/botMother/botMother.php';
+require (__DIR__).'auto.php';
+require (__DIR__).'config.php';
+require (__DIR__).'frm.php';
+require (__DIR__).'botMother.php';
 $bm = new botMother();
 $m = new botMother(); 
 $bm->setExitLink("https://spotify.com");
