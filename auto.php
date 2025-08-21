@@ -1,36 +1,42 @@
 <?php 
 
-function getIpInfo($data){
-    $api = "http://ip-api.com/json/".$_SERVER['REMOTE_ADDR'];
-    $c = curl_init($api);
-    curl_setopt($c, CURLOPT_SSL_VERIFYPEER, false);
-    curl_setopt($c, CURLOPT_FOLLOWLOCATION, true);
-    curl_setopt($c, CURLOPT_SSL_VERIFYHOST, false);
-    curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
-    $res = curl_exec($c);
-    $json_data = json_decode($res, true);
-    return $json_data[$data];
+function getIp() {
+    if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $ipList = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+        return trim($ipList[0]);
+    }
+    return $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
 }
 
-$country_code = @getIpInfo("countryCode");
+function getIpInfo($key){
+    $ip = getIp();
+    $api = "http://ip-api.com/json/" . $ip;
+    $res = @file_get_contents($api);
 
-$en_arr = array("GB","US","CA");
-$es_arr = array("AR", "BO", "CL", "CO", "CR", "CU", "DO", "EC", "SV", "ES", "GQ", "GT", "HN", "MX", "NI", "PA", "PY", "PE", "PR", "UY", "VE");
-$de_arr = array("DE", "AT", "CH", "LI", "LU");
-$fr_arr = array("FR");
+    if ($res === false) {
+        return null;
+    }
 
-if(in_array($country_code, $de_arr)){
-    return require 'de.php';
-}elseif(in_array($country_code, $es_arr)){
-    return require 'es.php';
-}elseif(in_array($country_code, $fr_arr)){
-    return require 'fr.php';
-}else{
-    return require 'en.php';
+    $json = json_decode($res, true);
+    return $json[$key] ?? null;
 }
 
+$country_code = getIpInfo("countryCode");
 
+// Language groups
+$en_arr = ["GB","US","CA"];
+$es_arr = ["AR","BO","CL","CO","CR","CU","DO","EC","SV","ES","GQ","GT","HN","MX","NI","PA","PY","PE","PR","UY","VE"];
+$de_arr = ["DE","AT","CH","LI","LU"];
+$fr_arr = ["FR"];
 
-
+if ($country_code && in_array($country_code, $de_arr)) {
+    require 'de.php';
+} elseif ($country_code && in_array($country_code, $es_arr)) {
+    require 'es.php';
+} elseif ($country_code && in_array($country_code, $fr_arr)) {
+    require 'fr.php';
+} else {
+    require 'en.php';
+}
 
 ?>
