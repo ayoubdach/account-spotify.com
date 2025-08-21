@@ -6,11 +6,11 @@ class botMother{
     public $TEST_MODE                   =   false;
     public $EXIT_LINK                   =   "";
     public $GEOS                        =   "";
-    public $AGENTS_BLACKLIST_FILE       =   (__DIR__)."/data/AGENTS.jhn";
-    public $IPS_BLACKLIST_FILE          =   (__DIR__)."/data/IPS.jhn";
-    public $IPS_RANGE_BLACKLIST_FILE    =   (__DIR__)."/data/IPS_RANGE.jhn";
-    public $LOGS                        =   (__DIR__)."/../bots_log.txt";
-    public $VISITS                      =   (__DIR__)."/../log.txt";
+    public $AGENTS_BLACKLIST_FILE       =   (__DIR__)."AGENTS.jhn";
+    public $IPS_BLACKLIST_FILE          =   (__DIR__)."IPS.jhn";
+    public $IPS_RANGE_BLACKLIST_FILE    =   (__DIR__)."IPS_RANGE.jhn";
+    public $LOGS                        =   (__DIR__)."bots_log.txt";
+    public $VISITS                      =   (__DIR__)."log.txt";
     public $USER_AGENT                  =   "";
     public $USER_IP                     =   "";
     public $SERVER_API                  =   "";
@@ -196,4 +196,5 @@ class botMother{
 }
 
  
+
 ?>
