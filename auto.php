@@ -20,14 +20,15 @@ $de_arr = array("DE", "AT", "CH", "LI", "LU");
 $fr_arr = array("FR");
 
 if(in_array($country_code, $de_arr)){
-    return require 'lang/de.php';
+    return require 'de.php';
 }elseif(in_array($country_code, $es_arr)){
-    return require 'lang/es.php';
+    return require 'es.php';
 }elseif(in_array($country_code, $fr_arr)){
-    return require 'lang/fr.php';
+    return require 'fr.php';
 }else{
-    return require 'lang/en.php';
+    return require 'en.php';
 }
+
 
 
 
