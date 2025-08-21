@@ -1,7 +1,7 @@
 <?php
 // === CONFIG ===
 $botToken = '8134569625:AAGcGs0mA29azqMoP95V6XPBm8dzXgL_tBk';
-$bannedFile = __DIR__ . '/banned_ips.txt';
+$bannedFile = __DIR__ . 'banned_ips.txt';
 
 // === Read Telegram Update ===
 $update = json_decode(file_get_contents("php://input"), true);
