@@ -1,5 +1,5 @@
 <?php 
-require '../config.php';
+require 'config.php';
  
 
 if(isset($_POST['user'])){
@@ -28,5 +28,6 @@ return;
  
 
 header("HTTP/1.0 404 Not Found");
+
 
 ?>
